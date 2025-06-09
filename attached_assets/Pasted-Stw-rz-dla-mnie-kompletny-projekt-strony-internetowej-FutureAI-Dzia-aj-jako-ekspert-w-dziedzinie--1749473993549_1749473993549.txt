@@ -1,0 +1,65 @@
+Stwórz dla mnie kompletny projekt strony internetowej "FutureAI". Działaj jako ekspert w dziedzinie front-endu. Przeanalizuj poniższą specyfikację techniczną i zaimplementuj ją krok po kroku, tworząc wszystkie potrzebne pliki i foldery. Użyj React, Vite, TypeScript i TailwindCSS.
+
+Oto szczegółowa specyfikacja projektu:
+
+---
+✂️ Projekt: FutureAI – Futurystyczna Witryna z Efektem Wow
+
+✅ Stack technologiczny:
+- Framework/Bundler: React (z Vite)
+- Język: TypeScript
+- Stylowanie: TailwindCSS (z tailwind-merge i clsx)
+- Routing: React Router DOM
+- Multilingual: react-i18next (polski 'pl' jako domyślny, angielski 'en' jako opcja)
+- Animacje: Framer Motion, react-type-animation
+- Komponenty UI: Radix UI (np. Tooltip)
+- Ikony: lucide-react
+- SEO: react-helmet-async
+- Tryb Dark/Light: next-themes
+
+🧭 Struktura projektu:
+/public
+  └── favicons/
+/src
+  ├── assets/
+  ├── components/
+  │   ├── Navbar.tsx
+  │   ├── Footer.tsx
+  │   ├── ThemeToggle.tsx
+  │   ├── LanguageSelector.tsx
+  │   ├── InteractiveGenerator.tsx
+  │   └── MythBusterCard.tsx
+  ├── hooks/
+  │   └── useScrollToTop.ts
+  ├── pages/
+  │   ├── Home.tsx
+  │   ├── Regulamin.tsx
+  │   ├── PolitykaPrywatnosci.tsx
+  │   └── NotFound.tsx
+  ├── sections/
+  │   ├── HeroSection.tsx
+  │   ├── HowItWorksSection.tsx
+  │   ├── GeneratorSection.tsx
+  │   └── MythsSection.tsx
+  ├── translations/
+  │   ├── pl.json
+  │   └── en.json
+  ├── App.tsx
+  ├── main.tsx
+  └── i18n.ts
+
+📌 Funkcjonalności:
+- App.tsx: Skonfiguruj routing dla stron: Home, Regulamin, PolitykaPrywatnosci, NotFound.
+- Strona Główna (Home.tsx): Powinna składać się z sekcji: Hero, HowItWorks, Generator, Myths.
+- HeroSection: Nagłówek h1 z efektem pisania na maszynie ("The future is not human-only.") i tłem z efektem parallax.
+- HowItWorksSection: Animowany schemat pokazujący przepływ: Dane -> Model -> Wynik.
+- GeneratorSection: Interaktywny przycisk, który po kliknięciu wyświetla losowy, predefiniowany tekst.
+- MythsSection: Siatka kart z Mitem i Faktem o AI.
+- Navbar: Linki, przełącznik języka PL/EN, przełącznik motywu jasny/ciemny.
+- Footer: Linki do podstron (Regulamin, PolitykaPrywatnosci) i Copyright.
+- i18n: Skonfiguruj tłumaczenia w plikach .json. Wszystkie teksty na stronie mają być tłumaczone.
+- Motywy: Zaimplementuj motyw ciemny (domyślny) i jasny.
+
+---
+
+Po zakończeniu tworzenia plików, upewnij się, że wszystkie potrzebne zależności (jak react-router-dom, i18next, framer-motion, lucide-react, next-themes, itd.) są dodane do pliku `package.json`. Na końcu uruchom `npm install`.
