@@ -14,6 +14,7 @@ export function Navbar() {
   const navItems = [
     { key: 'home', href: '/', section: '#home' },
     { key: 'howItWorks', href: '/', section: '#how-it-works' },
+    { key: 'showcase', href: '/', section: '#ai-showcase' },
     { key: 'generator', href: '/', section: '#generator' },
     { key: 'myths', href: '/', section: '#myths' },
   ];
