@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "FutureAI",
+    "title": "FutureAI - The Future of Artificial Intelligence"
+  },
+  "nav": {
+    "home": "Home",
+    "howItWorks": "How It Works",
+    "generator": "Generator",
+    "myths": "Myths & Facts"
+  },
+  "hero": {
+    "title": "The future is not human-only.",
+    "subtitle": "Discover unlimited possibilities of artificial intelligence and shape the future of technology today",
+    "cta": "Start Exploration",
+    "learnMore": "Learn More"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "description": "Simple yet powerful process of transforming data into intelligent solutions",
+    "step1": {
+      "title": "Data",
+      "description": "Collecting and preparing high-quality input data"
+    },
+    "step2": {
+      "title": "Model",
+      "description": "Advanced machine learning algorithms process information"
+    },
+    "step3": {
+      "title": "Result",
+      "description": "Intelligent solutions ready for practical application"
+    }
+  },
+  "generator": {
+    "title": "AI Generator",
+    "description": "Experience the power of artificial intelligence. Click the button to generate a random prediction about AI's future.",
+    "placeholder": "Click the button to discover AI's future...",
+    "button": "Generate Prediction",
+    "loading": "Generating..."
+  },
+  "myths": {
+    "title": "AI Myths & Facts",
+    "description": "Discover the truth about artificial intelligence and learn facts that might surprise you",
+    "mythLabel": "MYTH",
+    "factLabel": "FACT",
+    "myth1": {
+      "myth": "AI will replace all humans at work",
+      "fact": "AI will collaborate with humans, creating new types of jobs and increasing productivity in existing roles."
+    },
+    "myth2": {
+      "myth": "AI is more intelligent than humans",
+      "fact": "Current AI consists of specialized tools. They don't possess consciousness or general intelligence like humans."
+    },
+    "myth3": {
+      "myth": "AI can function without data",
+      "fact": "AI requires enormous amounts of high-quality data to learn and function properly."
+    },
+    "myth4": {
+      "myth": "AI is environmentally unfriendly",
+      "fact": "Modern AI solutions are becoming increasingly energy-efficient and help optimize energy consumption."
+    },
+    "myth5": {
+      "myth": "AI is only available to large corporations",
+      "fact": "More and more AI tools are becoming available to small businesses and individual users."
+    },
+    "myth6": {
+      "myth": "AI always makes perfect decisions",
+      "fact": "AI can make mistakes and its decisions depend on data quality and algorithms. It requires human oversight."
+    }
+  },
+  "footer": {
+    "description": "We shape the future of technology through innovative artificial intelligence solutions. Join us on this journey towards a better tomorrow.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "contact": "Contact",
+    "copyright": "© 2024 FutureAI. All rights reserved. Designed with 💙 for the future of AI."
+  },
+  "pages": {
+    "terms": {
+      "title": "Terms of Service",
+      "content": "Terms of service for FutureAI platform..."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": "Privacy policy for FutureAI platform..."
+    }
+  }
+}

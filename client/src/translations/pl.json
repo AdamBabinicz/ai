@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "FutureAI",
+    "title": "FutureAI - Przyszłość sztucznej inteligencji"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "howItWorks": "Jak to działa",
+    "generator": "Generator",
+    "myths": "Mity i fakty"
+  },
+  "hero": {
+    "title": "The future is not human-only.",
+    "subtitle": "Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś",
+    "cta": "Rozpocznij eksplorację",
+    "learnMore": "Dowiedz się więcej"
+  },
+  "howItWorks": {
+    "title": "Jak to działa",
+    "description": "Prosty, ale potężny proces transformacji danych w inteligentne rozwiązania",
+    "step1": {
+      "title": "Dane",
+      "description": "Gromadzenie i przygotowanie wysokiej jakości danych wejściowych"
+    },
+    "step2": {
+      "title": "Model",
+      "description": "Zaawansowane algorytmy uczenia maszynowego przetwarzają informacje"
+    },
+    "step3": {
+      "title": "Wynik",
+      "description": "Inteligentne rozwiązania gotowe do praktycznego zastosowania"
+    }
+  },
+  "generator": {
+    "title": "Generator AI",
+    "description": "Doświadcz mocy sztucznej inteligencji. Kliknij przycisk, aby wygenerować losową predykcję o przyszłości AI.",
+    "placeholder": "Kliknij przycisk, aby odkryć przyszłość AI...",
+    "button": "Generuj predykcję",
+    "loading": "Generowanie..."
+  },
+  "myths": {
+    "title": "Mity i fakty o AI",
+    "description": "Odkryj prawdę o sztucznej inteligencji i poznaj fakty, które mogą Cię zaskoczyć",
+    "mythLabel": "MIT",
+    "factLabel": "FAKT",
+    "myth1": {
+      "myth": "AI zastąpi wszystkich ludzi w pracy",
+      "fact": "AI będzie współpracować z ludźmi, tworząc nowe rodzaje pracy i zwiększając produktywność w istniejących rolach."
+    },
+    "myth2": {
+      "myth": "AI jest bardziej inteligentna niż ludzie",
+      "fact": "Obecna AI to wyspecjalizowane narzędzia. Nie posiadają świadomości ani ogólnej inteligencji jak ludzie."
+    },
+    "myth3": {
+      "myth": "AI może funkcjonować bez danych",
+      "fact": "AI wymaga ogromnych ilości wysokiej jakości danych do uczenia się i poprawnego funkcjonowania."
+    },
+    "myth4": {
+      "myth": "AI jest nieprzyjazna dla środowiska",
+      "fact": "Nowoczesne rozwiązania AI stają się coraz bardziej efektywne energetycznie i pomagają optymalizować zużycie energii."
+    },
+    "myth5": {
+      "myth": "AI jest dostępna tylko dla wielkich korporacji",
+      "fact": "Coraz więcej narzędzi AI staje się dostępnych dla małych firm i indywidualnych użytkowników."
+    },
+    "myth6": {
+      "myth": "AI zawsze podejmuje idealne decyzje",
+      "fact": "AI może popełniać błędy i jej decyzje zależą od jakości danych oraz algorytmów. Wymaga nadzoru człowieka."
+    }
+  },
+  "footer": {
+    "description": "Kształtujemy przyszłość technologii poprzez innowacyjne rozwiązania sztucznej inteligencji. Dołącz do nas w tej podróży ku lepszemu jutru.",
+    "navigation": "Nawigacja",
+    "legal": "Prawne",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności",
+    "cookies": "Polityka cookies",
+    "contact": "Kontakt",
+    "copyright": "© 2024 FutureAI. Wszystkie prawa zastrzeżone. Zaprojektowane z 💙 dla przyszłości AI."
+  },
+  "pages": {
+    "terms": {
+      "title": "Regulamin",
+      "content": "Regulamin korzystania z serwisu FutureAI..."
+    },
+    "privacy": {
+      "title": "Polityka Prywatności",
+      "content": "Polityka prywatności serwisu FutureAI..."
+    }
+  }
+}
