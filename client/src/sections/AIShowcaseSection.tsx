@@ -43,42 +43,6 @@ export function AIShowcaseSection() {
   const handleTryDemo = (type: string) => {
     setActiveDemo(type);
     
-    // For music demo, simulate a more complex musical sequence
-    if (type === 'music') {
-      try {
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-        const masterGain = audioContext.createGain();
-        masterGain.connect(audioContext.destination);
-        masterGain.gain.setValueAtTime(0.1, audioContext.currentTime);
-        
-        // Play a short melody sequence
-        const notes = [440, 523.25, 659.25, 880, 659.25, 523.25]; // A4, C5, E5, A5, E5, C5
-        
-        notes.forEach((frequency, index) => {
-          const oscillator = audioContext.createOscillator();
-          const gainNode = audioContext.createGain();
-          
-          oscillator.connect(gainNode);
-          gainNode.connect(masterGain);
-          
-          oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-          oscillator.type = 'sine';
-          
-          const startTime = audioContext.currentTime + index * 0.3;
-          const endTime = startTime + 0.25;
-          
-          gainNode.gain.setValueAtTime(0, startTime);
-          gainNode.gain.linearRampToValueAtTime(0.3, startTime + 0.05);
-          gainNode.gain.exponentialRampToValueAtTime(0.001, endTime);
-          
-          oscillator.start(startTime);
-          oscillator.stop(endTime);
-        });
-      } catch (error) {
-        console.log('Audio not supported');
-      }
-    }
-    
     // Simulate demo activation
     setTimeout(() => {
       setActiveDemo(null);
@@ -98,107 +62,11 @@ export function AIShowcaseSection() {
           transition={{ duration: 0.5 }}
         >
           <div className="w-72 h-48 relative">
-            {/* High-quality photorealistic landscape */}
-            <svg width="288" height="192" viewBox="0 0 288 192" className="rounded-lg shadow-lg">
-              <defs>
-                <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#FF6B6B" />
-                  <stop offset="30%" stopColor="#4ECDC4" />
-                  <stop offset="70%" stopColor="#45B7D1" />
-                  <stop offset="100%" stopColor="#96CEB4" />
-                </linearGradient>
-                <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2C3E50" />
-                  <stop offset="50%" stopColor="#34495E" />
-                  <stop offset="100%" stopColor="#7F8C8D" />
-                </linearGradient>
-                <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#3498DB" />
-                  <stop offset="100%" stopColor="#2980B9" />
-                </linearGradient>
-              </defs>
-              
-              {/* Sky with gradient */}
-              <rect width="288" height="130" fill="url(#skyGradient)" />
-              
-              {/* Distant mountains */}
-              <polygon points="0,100 60,60 120,75 180,45 240,65 288,50 288,130" fill="#5D6D7E" opacity="0.7" />
-              
-              {/* Main mountains */}
-              <polygon points="0,130 40,80 90,95 140,70 200,85 260,75 288,85 288,130" fill="url(#mountainGradient)" />
-              
-              {/* Water reflection */}
-              <rect y="130" width="288" height="35" fill="url(#waterGradient)" />
-              
-              {/* Water ripples */}
-              {[...Array(8)].map((_, i) => (
-                <motion.ellipse
-                  key={i}
-                  cx={40 + i * 30}
-                  cy={140 + Math.sin(i) * 8}
-                  rx="15"
-                  ry="3"
-                  fill="white"
-                  opacity="0.1"
-                  animate={{
-                    opacity: [0.1, 0.3, 0.1],
-                    rx: [15, 20, 15],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.3,
-                  }}
-                />
-              ))}
-              
-              {/* Foreground */}
-              <rect y="165" width="288" height="27" fill="#27AE60" />
-              
-              {/* Trees with detail */}
-              <g>
-                <rect x="30" y="140" width="4" height="25" fill="#8B4513" />
-                <polygon points="25,135 32,120 39,135" fill="#228B22" />
-                <circle cx="32" cy="130" r="8" fill="#2ECC71" />
-              </g>
-              
-              <g>
-                <rect x="180" y="145" width="3" height="20" fill="#8B4513" />
-                <polygon points="176,142 181.5,130 187,142" fill="#1E8449" />
-                <circle cx="181.5" cy="137" r="6" fill="#27AE60" />
-              </g>
-              
-              {/* Sun with rays */}
-              <motion.g>
-                <circle cx="240" cy="35" r="18" fill="#F39C12" />
-                {[...Array(8)].map((_, i) => (
-                  <motion.line
-                    key={i}
-                    x1={240 + Math.cos(i * Math.PI / 4) * 25}
-                    y1={35 + Math.sin(i * Math.PI / 4) * 25}
-                    x2={240 + Math.cos(i * Math.PI / 4) * 35}
-                    y2={35 + Math.sin(i * Math.PI / 4) * 35}
-                    stroke="#F1C40F"
-                    strokeWidth="2"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
-                  />
-                ))}
-              </motion.g>
-              
-              {/* Clouds with volume */}
-              <g opacity="0.8">
-                <ellipse cx="70" cy="40" rx="20" ry="12" fill="white" />
-                <ellipse cx="85" cy="35" rx="25" ry="15" fill="white" />
-                <ellipse cx="75" cy="45" rx="18" ry="10" fill="white" />
-              </g>
-              
-              <g opacity="0.6">
-                <ellipse cx="180" cy="25" rx="22" ry="14" fill="white" />
-                <ellipse cx="195" cy="20" rx="28" ry="18" fill="white" />
-                <ellipse cx="185" cy="30" rx="20" ry="12" fill="white" />
-              </g>
-            </svg>
+            <img 
+              src="/assets/ai-generated-image.png" 
+              alt="AI Generated Futuristic Portrait"
+              className="w-72 h-48 rounded-lg shadow-lg object-cover"
+            />
             
             {/* Generation overlay */}
             {activeDemo === 'image' && (
@@ -216,7 +84,7 @@ export function AIShowcaseSection() {
                     🎨
                   </motion.div>
                   <div className="font-semibold">Generating image...</div>
-                  <div className="text-sm opacity-80">"Sunset over mountains"</div>
+                  <div className="text-sm opacity-80">"Futuristic AI portrait"</div>
                   
                   {/* Progress bar */}
                   <div className="w-32 bg-white/30 rounded-full h-1 mt-3 mx-auto">
@@ -239,69 +107,46 @@ export function AIShowcaseSection() {
       titleKey: 'showcase.video.title',
       descKey: 'showcase.video.desc',
       content: (
-        <div className="w-72 h-48 bg-black rounded-lg shadow-lg relative overflow-hidden border border-gray-300">
-          {/* Video frame simulation */}
-          <div className="absolute inset-2 bg-gradient-to-br from-purple-600 via-blue-500 to-cyan-400 rounded">
-            {/* Animated particles */}
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-white rounded-full"
-                animate={{
-                  x: [Math.random() * 280, Math.random() * 280],
-                  y: [Math.random() * 180, Math.random() * 180],
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-                style={{
-                  left: Math.random() * 100 + '%',
-                  top: Math.random() * 100 + '%',
-                }}
-              />
-            ))}
-            
-            {/* Moving geometric shapes */}
-            <motion.div
-              className="absolute w-8 h-8 border-2 border-white/60"
-              animate={{
-                rotate: [0, 360],
-                x: [10, 240, 10],
-                y: [20, 140, 20],
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-            
-            <motion.div
-              className="absolute w-6 h-6 bg-white/40 rounded-full"
-              animate={{
-                x: [200, 50, 200],
-                y: [30, 120, 30],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-            />
-          </div>
+        <div className="w-72 h-48 rounded-lg shadow-lg relative overflow-hidden">
+          <video 
+            className="w-72 h-48 rounded-lg shadow-lg object-cover"
+            controls
+            poster="/assets/ai-generated-image.png"
+            preload="metadata"
+          >
+            <source src="/assets/ai-generated-video.mp4" type="video/mp4" />
+            Twoja przeglądarka nie obsługuje elementu video.
+          </video>
           
-          {/* Play button overlay */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              className="bg-black/50 rounded-full p-4"
-              animate={activeDemo === 'video' ? { scale: [1, 1.1, 1] } : {}}
-              transition={{ duration: 0.5, repeat: Infinity }}
+          {/* Generation overlay - only when demo is active */}
+          {activeDemo === 'video' && (
+            <motion.div 
+              className="absolute inset-0 bg-black/60 rounded-lg flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
-              <Play className="w-8 h-8 text-white fill-white" />
+              <div className="text-center text-white">
+                <motion.div
+                  className="text-2xl mb-2"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                >
+                  🎬
+                </motion.div>
+                <div className="font-semibold">Processing video...</div>
+                <div className="text-sm opacity-80">"AI Generated Content"</div>
+                
+                {/* Progress bar */}
+                <div className="w-32 bg-white/30 rounded-full h-1 mt-3 mx-auto">
+                  <motion.div
+                    className="bg-blue-400 h-1 rounded-full"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 2.5, ease: "easeOut" }}
+                  />
+                </div>
+              </div>
             </motion.div>
-          </div>
-          
-          {/* Video controls */}
-          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-white/80 text-xs">
-            <span>{activeDemo === 'video' ? '🎬 Rendering...' : '▶ "Neural Network Visualization"'}</span>
-            <span>2:34</span>
-          </div>
+          )}
         </div>
       )
     },
@@ -312,24 +157,36 @@ export function AIShowcaseSection() {
       descKey: 'showcase.music.desc',
       content: (
         <div className="w-72 h-48 bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 rounded-lg shadow-lg flex flex-col items-center justify-center p-4 relative overflow-hidden">
-          {/* Audio waveform */}
-          <div className="flex items-end space-x-1 mb-4 h-24">
-            {[...Array(32)].map((_, i) => (
+          {/* Audio player */}
+          <div className="w-full mb-4">
+            <audio 
+              controls
+              className="w-full h-12 bg-black/20 rounded-lg"
+              preload="metadata"
+            >
+              <source src="/assets/ai-generated-music.mp3" type="audio/mpeg" />
+              Twoja przeglądarka nie obsługuje elementu audio.
+            </audio>
+          </div>
+
+          {/* Audio waveform visualization */}
+          <div className="flex items-end space-x-1 mb-4 h-16">
+            {[...Array(24)].map((_, i) => (
               <motion.div
                 key={i}
                 className="w-1 bg-gradient-to-t from-cyan-400 to-purple-400 rounded-full"
                 animate={{ 
                   height: activeDemo === 'music' 
                     ? [
-                        Math.sin(i * 0.3) * 30 + 35,
-                        Math.sin(i * 0.3 + Math.PI/2) * 40 + 40,
-                        Math.sin(i * 0.3 + Math.PI) * 35 + 30,
-                        Math.sin(i * 0.3 + 3*Math.PI/2) * 45 + 35
+                        Math.sin(i * 0.3) * 20 + 25,
+                        Math.sin(i * 0.3 + Math.PI/2) * 25 + 30,
+                        Math.sin(i * 0.3 + Math.PI) * 20 + 25,
+                        Math.sin(i * 0.3 + 3*Math.PI/2) * 30 + 25
                       ]
                     : [
-                        Math.sin(i * 0.2) * 15 + 20,
-                        Math.sin(i * 0.2 + Math.PI/4) * 20 + 25,
-                        Math.sin(i * 0.2 + Math.PI/2) * 15 + 20
+                        Math.sin(i * 0.2) * 10 + 15,
+                        Math.sin(i * 0.2 + Math.PI/4) * 15 + 20,
+                        Math.sin(i * 0.2 + Math.PI/2) * 10 + 15
                       ]
                 }}
                 transition={{ 
@@ -343,15 +200,15 @@ export function AIShowcaseSection() {
           </div>
           
           {/* Floating notes */}
-          {activeDemo === 'music' && [...Array(6)].map((_, i) => (
+          {activeDemo === 'music' && [...Array(4)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute text-white/60 text-lg"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{
                 opacity: [0, 1, 0],
-                y: [40, -20],
-                x: [Math.random() * 200, Math.random() * 200],
+                y: [30, -15],
+                x: [Math.random() * 150, Math.random() * 150],
               }}
               transition={{
                 duration: 2,
@@ -359,24 +216,15 @@ export function AIShowcaseSection() {
                 delay: i * 0.3,
               }}
             >
-              {['♪', '♫', '♬', '♩', '♭', '♯'][i]}
+              {['♪', '♫', '♬', '♩'][i]}
             </motion.div>
           ))}
           
           <div className="text-white/90 text-sm font-medium text-center z-10">
-            {activeDemo === 'music' ? '🎵 Composing Symphony...' : '♪ "AI Symphony No.1 in D Minor" ♪'}
+            {activeDemo === 'music' ? '🎵 Composing...' : '♪ "AI Generated Music" ♪'}
             <div className="text-xs text-white/70 mt-1">
-              {activeDemo === 'music' ? 'Generating harmonies...' : 'AI Composed • 3:47'}
+              {activeDemo === 'music' ? 'Generating harmonies...' : 'AI Composed Track'}
             </div>
-          </div>
-          
-          {/* Progress bar */}
-          <div className="w-full bg-white/20 rounded-full h-1 mt-2">
-            <motion.div
-              className="bg-cyan-400 h-1 rounded-full"
-              animate={activeDemo === 'music' ? { width: ['0%', '100%'] } : { width: '67%' }}
-              transition={{ duration: 3, ease: "linear" }}
-            />
           </div>
         </div>
       )
