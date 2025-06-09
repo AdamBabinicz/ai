@@ -8,10 +8,17 @@
     "howItWorks": "Jak to działa",
     "showcase": "AI w Akcji",
     "generator": "Generator",
-    "myths": "Mity i fakty"
+    "myths": "Mity i fakty",
+    "anchors": {
+      "home": "start",
+      "howItWorks": "jak-to-dziala",
+      "showcase": "ai-w-akcji",
+      "generator": "generator",
+      "myths": "mity-i-fakty"
+    }
   },
   "hero": {
-    "title": "The future is not human-only.",
+    "title": "Przyszłość nie należy tylko do ludzi.",
     "subtitle": "Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś",
     "cta": "Rozpocznij eksplorację",
     "learnMore": "Dowiedz się więcej"
@@ -44,19 +51,33 @@
     "description": "Zobacz przykłady tego, co sztuczna inteligencja może tworzyć już dziś - od obrazów po muzykę i teksty",
     "image": {
       "title": "Generowanie Obrazów",
-      "desc": "AI tworzy fotorealistyczne obrazy z opisów tekstowych"
+      "desc": "AI tworzy fotorealistyczne obrazy z opisów tekstowych",
+      "processingText": "Generowanie obrazu...",
+      "processingQuote": "\"Futurystyczny portret AI\""
     },
     "video": {
       "title": "Produkcja Wideo",
-      "desc": "Automatyczne tworzenie filmów i animacji"
+      "desc": "Automatyczne tworzenie filmów i animacji",
+      "processingText": "Przetwarzanie wideo...",
+      "processingQuote": "\"Treść wygenerowana przez AI\""
     },
     "music": {
       "title": "Kompozycja Muzyki",
-      "desc": "AI komponuje oryginalne utwory w każdym stylu"
+      "desc": "AI komponuje oryginalne utwory w każdym stylu",
+      "processingLabel": "🎵 Komponowanie...",
+      "processingSublabel": "Generowanie harmonii...",
+      "staticLabel": "♪ Utwór wygenerowany przez AI ♪",
+      "staticSublabel": "Kompozycja AI"
     },
     "text": {
       "title": "Pisanie Tekstów",
-      "desc": "Generowanie artykułów, raportów i kreatywnych treści"
+      "desc": "Generowanie artykułów, raportów i kreatywnych treści",
+      "processingLabel": "✍️ AI Pisze...",
+      "staticLabel": "Artykuł wygenerowany przez AI",
+      "staticTitle": "Jak AI transformuje branże",
+      "staticContent": "Sztuczna inteligencja rewolucjonizuje sposób, w jaki pracujemy i żyjemy. Od automatyzacji złożonych zadań po dostarczanie inteligentnych analiz, jej wpływ jest widoczny w każdej dziedzinie. Wspiera lekarzy w diagnozowaniu chorób, optymalizuje globalne łańcuchy dostaw i personalizuje edukację, dostosowując ją do potrzeb każdego ucznia. AI staje się także partnerem w procesie twórczym, otwierając przed nami zupełnie nowe horyzonty możliwości...",
+      "staticGeneratedIn": "✨ Wygenerowano przez AI w 2.3 sekundy",
+      "typewriterContent": "Sztuczna inteligencja rewolucjonizuje sposób, w jaki pracujemy i żyjemy. Od automatyzacji złożonych zadań po dostarczanie inteligentnych analiz, systemy AI stają się coraz bardziej zaawansowane. Nowoczesne modele językowe potrafią rozumieć kontekst, generować kreatywne treści i pomagać w rozwiązywaniu problemów w różnych dziedzinach, takich jak opieka zdrowotna, finanse i edukacja..."
     },
     "tryButton": "Wypróbuj",
     "processing": "Przetwarzanie..."
@@ -102,13 +123,94 @@
     "copyright": "© 2024 FutureAI. Wszystkie prawa zastrzeżone. Zaprojektowane z 💙 dla przyszłości AI."
   },
   "pages": {
+    "common": {
+      "backToHome": "Powrót do strony głównej",
+      "lastUpdated": "Ostatnia aktualizacja"
+    },
     "terms": {
       "title": "Regulamin",
-      "content": "Regulamin korzystania z serwisu FutureAI..."
+      "sections": [
+        {
+          "title": "1. Postanowienia ogólne",
+          "content": "Niniejszy regulamin określa zasady korzystania z serwisu FutureAI, dostępnego pod adresem internetowym oraz związanych z nim usług."
+        },
+        {
+          "title": "2. Definicje",
+          "definitions": [
+            {
+              "term": "Serwis",
+              "def": "witryna internetowa FutureAI oraz wszystkie związane z nią funkcjonalności i usługi."
+            },
+            {
+              "term": "Użytkownik",
+              "def": "osoba fizyczna korzystająca z Serwisu."
+            }
+          ]
+        },
+        {
+          "title": "3. Zasady korzystania",
+          "content": "Korzystanie z Serwisu jest bezpłatne i nie wymaga rejestracji. Użytkownik zobowiązuje się do korzystania z Serwisu zgodnie z jego przeznaczeniem i obowiązującymi przepisami prawa."
+        },
+        {
+          "title": "4. Własność intelektualna",
+          "content": "Wszystkie treści publikowane w Serwisie, w tym teksty, grafiki, logotypy, stanowią własność intelektualną FutureAI i są chronione przepisami prawa autorskiego."
+        },
+        {
+          "title": "5. Wyłączenie odpowiedzialności",
+          "content": "Serwis ma charakter edukacyjny i informacyjny. Treści prezentowane w Serwisie nie stanowią porady prawnej, finansowej ani inwestycyjnej."
+        },
+        {
+          "title": "6. Postanowienia końcowe",
+          "content": "Regulamin może być zmieniany. O wszelkich zmianach Użytkownicy będą informowani poprzez publikację nowej wersji regulaminu w Serwisie."
+        }
+      ]
     },
     "privacy": {
       "title": "Polityka Prywatności",
-      "content": "Polityka prywatności serwisu FutureAI..."
+      "sections": [
+        {
+          "title": "1. Informacje ogólne",
+          "content": "Niniejsza polityka prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników serwisu FutureAI."
+        },
+        {
+          "title": "2. Administrator danych",
+          "content": "Administratorem danych osobowych jest FutureAI, odpowiedzialny za bezpieczne przetwarzanie powierzonych danych."
+        },
+        {
+          "title": "3. Zakres zbieranych danych",
+          "content": "Serwis może zbierać następujące dane:",
+          "items": [
+            "Dane techniczne (adres IP, typ przeglądarki, system operacyjny)",
+            "Dane o aktywności w serwisie (odwiedzone strony, czas wizyty)",
+            "Dane z plików cookies (preferencje użytkownika)"
+          ]
+        },
+        {
+          "title": "4. Cel przetwarzania danych",
+          "content": "Dane są przetwarzane w celu:",
+          "items": [
+            "Zapewnienia prawidłowego funkcjonowania serwisu",
+            "Analizy ruchu i optymalizacji witryny",
+            "Personalizacji doświadczeń użytkownika"
+          ]
+        },
+        {
+          "title": "5. Prawa użytkowników",
+          "content": "Użytkownik ma prawo do:",
+          "items": [
+            "Dostępu do swoich danych osobowych",
+            "Sprostowania nieprawidłowych danych",
+            "Usunięcia danych (prawo do bycia zapomnianym)",
+            "Ograniczenia przetwarzania",
+            "Przenoszenia danych",
+            "Wniesienia sprzeciwu wobec przetwarzania"
+          ]
+        },
+        {
+          "title": "6. Kontakt",
+          "content": "W sprawach dotyczących ochrony danych osobowych można skontaktować się z nami poprzez formularz kontaktowy dostępny w serwisie."
+        }
+      ]
     }
   }
 }

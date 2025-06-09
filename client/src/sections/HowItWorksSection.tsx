@@ -8,25 +8,29 @@ export function HowItWorksSection() {
   const steps = [
     {
       icon: Database,
-      key: 'step1',
-      gradient: 'from-blue-500 to-blue-600',
+      key: "step1",
+      gradient: "from-blue-500 to-blue-600",
     },
     {
       icon: Cpu,
-      key: 'step2',
-      gradient: 'from-purple-500 to-purple-600',
+      key: "step2",
+      gradient: "from-purple-500 to-purple-600",
     },
     {
       icon: Sparkles,
-      key: 'step3',
-      gradient: 'from-green-500 to-green-600',
+      key: "step3",
+      gradient: "from-green-500 to-green-600",
     },
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-gray-100 dark:bg-gray-800/50" style={{ backgroundColor: 'var(--section-bg)' }}>
+    <section
+      id={t("nav.anchors.howItWorks")}
+      className="py-20"
+      style={{ background: "var(--section-alt-bg)" }}
+    >
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,10 +38,10 @@ export function HowItWorksSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            {t('howItWorks.title')}
+            {t("howItWorks.title")}
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('howItWorks.description')}
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t("howItWorks.description")}
           </p>
         </motion.div>
 
@@ -54,7 +58,7 @@ export function HowItWorksSection() {
                   viewport={{ once: true }}
                 >
                   <div className="relative mb-6">
-                    <motion.div 
+                    <motion.div
                       className={`w-20 h-20 bg-gradient-to-r ${step.gradient} rounded-full flex items-center justify-center mx-auto transition-transform`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
@@ -62,17 +66,16 @@ export function HowItWorksSection() {
                       <Icon className="w-10 h-10 text-white" />
                     </motion.div>
                   </div>
-                  
-                  <h3 className="text-2xl font-semibold mb-4 text-white">
+
+                  <h3 className="text-2xl font-semibold mb-4 text-foreground">
                     {t(`howItWorks.${step.key}.title`)}
                   </h3>
-                  
-                  <p className="text-gray-300">
+
+                  <p className="text-muted-foreground">
                     {t(`howItWorks.${step.key}.description`)}
                   </p>
                 </motion.div>
 
-                {/* Arrow for desktop */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent transform translate-x-4">
                     <ArrowRight className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 w-6 h-6 text-blue-500" />

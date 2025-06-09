@@ -5,23 +5,27 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
-
+import i18n from "./i18n";
+import { SeoManager } from "./components/SeoManager";
 import { queryClient } from "./lib/queryClient";
 import { useScrollToTop } from "./hooks/useScrollToTop";
+import { routes } from "./routes";
 
-import Home from "@/pages/Home";
-import Regulamin from "@/pages/Regulamin";
-import PolitykaPrywatnosci from "@/pages/PolitykaPrywatnosci";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   useScrollToTop();
-  
+  const currentLang = i18n.language as "pl" | "en";
+
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/regulamin" component={Regulamin} />
-      <Route path="/polityka-prywatnosci" component={PolitykaPrywatnosci} />
+      {routes.map((route) => (
+        <Route
+          key={route.key}
+          path={route.paths[currentLang]}
+          component={route.component}
+        />
+      ))}
       <Route component={NotFound} />
     </Switch>
   );
@@ -32,12 +36,13 @@ function App() {
 
   return (
     <HelmetProvider>
+      <SeoManager />
       <QueryClientProvider client={queryClient}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <TooltipProvider>
             <Helmet>
-              <title>{t('site.title')}</title>
-              <meta name="description" content={t('hero.subtitle')} />
+              <title>{t("site.title")}</title>
+              <meta name="description" content={t("hero.subtitle")} />
             </Helmet>
             <Toaster />
             <Router />

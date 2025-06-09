@@ -6,9 +6,13 @@ export function GeneratorSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="generator" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ backgroundColor: 'var(--section-alt-bg)' }}>
+    <section
+      id={t("nav.anchors.generator")}
+      className="py-20"
+      style={{ background: "var(--section-bg)" }}
+    >
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,14 +20,14 @@ export function GeneratorSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            {t('generator.title')}
+            {t("generator.title")}
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('generator.description')}
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t("generator.description")}
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

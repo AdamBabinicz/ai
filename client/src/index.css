@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
+  /* ZMIANA: Główne tło jest teraz bardzo jasnym, złamanym białym, a nie czystą bielą */
+  --background: hsl(240, 10%, 99%);
   --foreground: hsl(240, 10%, 3.9%);
   --muted: hsl(240, 4.8%, 95.9%);
-  --muted-foreground: hsl(240, 3.7%, 45.9%);
+  /* ZMIANA: Znacznie ciemniejszy kolor tekstu dla lepszego kontrastu i czytelności */
+  --muted-foreground: hsl(240, 5%, 45%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(240, 10%, 3.9%);
   --card: hsl(0, 0%, 100%);
@@ -25,15 +27,15 @@
   --destructive-foreground: hsl(210, 40%, 98%);
   --ring: hsl(221, 83%, 53%);
   --radius: 0.75rem;
-  
+
   /* Custom AI theme colors - Light */
   --ai-primary: hsl(221, 83%, 53%);
   --ai-secondary: hsl(262, 83%, 58%);
   --ai-accent: hsl(142, 71%, 45%);
   --glass-bg: hsla(255, 255%, 255%, 0.85);
   --glass-border: hsla(221, 83%, 53%, 0.3);
-  --section-bg: hsl(240, 4.8%, 97%);
-  --section-alt-bg: hsl(240, 4.8%, 95%);
+  /* ZMIANA: Tło dla co drugiej sekcji będzie teraz czysto białe dla lepszego kontrastu */
+  --section-alt-bg: hsl(0, 0%, 100%);
 }
 
 .dark {
@@ -56,29 +58,42 @@
   --destructive: hsl(0, 62%, 30%);
   --destructive-foreground: hsl(0, 0%, 98%);
   --ring: hsl(240, 4.9%, 83.9%);
-  
+
   /* Dark theme custom colors */
   --ai-primary: hsl(221, 83%, 53%);
   --ai-secondary: hsl(262, 83%, 58%);
   --ai-accent: hsl(142, 71%, 45%);
   --glass-bg: hsla(240, 15%, 8%, 0.85);
   --glass-border: hsla(221, 83%, 53%, 0.3);
-  --section-bg: linear-gradient(135deg, hsl(240, 15%, 8%) 0%, hsl(250, 20%, 12%) 100%);
-  --section-alt-bg: linear-gradient(135deg, hsl(260, 25%, 15%) 0%, hsl(270, 20%, 10%) 100%);
+  /* ZMIANA: Używamy teraz jednej zmiennej dla tła sekcji w trybie ciemnym */
+  --section-alt-bg: hsl(222.2, 47.4%, 14%);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
+  html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
+    width: 100%;
+    overflow-x: hidden;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
   }
 }
 
@@ -89,40 +104,44 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
   }
-  
+
   .gradient-text {
     background: linear-gradient(135deg, var(--ai-primary), var(--ai-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .glow-effect {
     box-shadow: 0 0 20px hsla(221, 83%, 53%, 0.3);
   }
-  
+
   .typewriter {
     overflow: hidden;
     border-right: 2px solid hsl(var(--ai-primary));
     white-space: nowrap;
     animation: typing 4s steps(40) 1s 1 normal both, blink 1s infinite;
   }
-  
+
   .parallax-bg {
-    background: linear-gradient(135deg, 
-      hsl(210, 40%, 96%) 0%, 
-      hsl(220, 40%, 92%) 50%, 
-      hsl(230, 40%, 88%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(210, 40%, 96%) 0%,
+      hsl(220, 40%, 92%) 50%,
+      hsl(230, 40%, 88%) 100%
+    );
     background-attachment: fixed;
   }
-  
+
   .dark .parallax-bg {
-    background: linear-gradient(135deg, 
-      hsl(240, 15%, 8%) 0%, 
+    background: linear-gradient(
+      135deg,
+      hsl(240, 15%, 8%) 0%,
       hsl(250, 20%, 12%) 25%,
-      hsl(260, 25%, 15%) 50%, 
+      hsl(260, 25%, 15%) 50%,
       hsl(270, 20%, 10%) 75%,
-      hsl(240, 15%, 6%) 100%);
+      hsl(240, 15%, 6%) 100%
+    );
     background-attachment: fixed;
   }
 }
@@ -131,28 +150,47 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
+
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
   }
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  0%, 50% { border-color: hsl(var(--ai-primary)); }
-  51%, 100% { border-color: transparent; }
+  0%,
+  50% {
+    border-color: hsl(var(--ai-primary));
+  }
+  51%,
+  100% {
+    border-color: transparent;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes glow {
-  0% { box-shadow: 0 0 20px hsla(221, 83%, 53%, 0.3); }
-  100% { box-shadow: 0 0 40px hsla(221, 83%, 53%, 0.6); }
+  0% {
+    box-shadow: 0 0 20px hsla(221, 83%, 53%, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px hsla(221, 83%, 53%, 0.6);
+  }
 }

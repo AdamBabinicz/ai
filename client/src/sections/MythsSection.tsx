@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 export function MythsSection() {
   const { t } = useTranslation();
 
-  const myths = ['myth1', 'myth2', 'myth3', 'myth4', 'myth5', 'myth6'];
+  const myths = ["myth1", "myth2", "myth3", "myth4", "myth5", "myth6"];
 
   return (
-    <section id="myths" className="py-20 bg-gray-100 dark:bg-gray-800/50" style={{ backgroundColor: 'var(--section-bg)' }}>
+    <section id={t("nav.anchors.myths")} className="py-20 parallax-bg">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,10 +18,10 @@ export function MythsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            {t('myths.title')}
+            {t("myths.title")}
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('myths.description')}
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t("myths.description")}
           </p>
         </motion.div>
 

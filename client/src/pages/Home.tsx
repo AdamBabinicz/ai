@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>{t('site.title')}</title>
-        <meta name="description" content={t('hero.subtitle')} />
-        <meta property="og:title" content={t('site.title')} />
-        <meta property="og:description" content={t('hero.subtitle')} />
+        <title>{t("site.title")}</title>
+        <meta name="description" content={t("hero.subtitle")} />
+        <meta property="og:title" content={t("site.title")} />
+        <meta property="og:description" content={t("hero.subtitle")} />
       </Helmet>
-      
+
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <main>

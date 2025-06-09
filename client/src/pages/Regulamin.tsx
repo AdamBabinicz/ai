@@ -7,15 +7,25 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export default function Regulamin() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const termsData = t("pages.terms.sections", { returnObjects: true }) as {
+    title: string;
+    content?: string;
+    definitions?: { term: string; def: string }[];
+  }[];
+  const lastUpdate = new Date().toLocaleDateString(i18n.language);
 
   return (
     <>
       <Helmet>
-        <title>{t('pages.terms.title')} - {t('site.name')}</title>
-        <meta name="description" content={`${t('pages.terms.title')} - ${t('site.name')}`} />
+        <title>
+          {t("pages.terms.title")} - {t("site.name")}
+        </title>
+        <meta
+          name="description"
+          content={`${t("pages.terms.title")} - ${t("site.name")}`}
+        />
       </Helmet>
-      
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <main className="pt-24 pb-16">
@@ -24,60 +34,30 @@ export default function Regulamin() {
               <Link href="/">
                 <Button variant="ghost" className="mb-4">
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  Powrót do strony głównej
+                  {t("pages.common.backToHome")}
                 </Button>
               </Link>
-              
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-                {t('pages.terms.title')}
-              </h1>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+                {t("pages.terms.title")}
+              </h2>
             </div>
-
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <div className="glass-effect rounded-2xl p-8">
-                <h2>1. Postanowienia ogólne</h2>
-                <p>
-                  Niniejszy regulamin określa zasady korzystania z serwisu FutureAI, 
-                  dostępnego pod adresem internetowym oraz związanych z nim usług.
-                </p>
-
-                <h2>2. Definicje</h2>
-                <p>
-                  <strong>Serwis</strong> - witryna internetowa FutureAI oraz wszystkie 
-                  związane z nią funkcjonalności i usługi.
-                </p>
-                <p>
-                  <strong>Użytkownik</strong> - osoba fizyczna korzystająca z Serwisu.
-                </p>
-
-                <h2>3. Zasady korzystania</h2>
-                <p>
-                  Korzystanie z Serwisu jest bezpłatne i nie wymaga rejestracji. 
-                  Użytkownik zobowiązuje się do korzystania z Serwisu zgodnie z jego 
-                  przeznaczeniem i obowiązującymi przepisami prawa.
-                </p>
-
-                <h2>4. Własność intelektualna</h2>
-                <p>
-                  Wszystkie treści publikowane w Serwisie, w tym teksty, grafiki, 
-                  logotypy, stanowią własność intelektualną FutureAI i są chronione 
-                  przepisami prawa autorskiego.
-                </p>
-
-                <h2>5. Wyłączenie odpowiedzialności</h2>
-                <p>
-                  Serwis ma charakter edukacyjny i informacyjny. Treści prezentowane 
-                  w Serwisie nie stanowią porady prawnej, finansowej ani inwestycyjnej.
-                </p>
-
-                <h2>6. Postanowienia końcowe</h2>
-                <p>
-                  Regulamin może być zmieniany. O wszelkich zmianach Użytkownicy będą 
-                  informowani poprzez publikację nowej wersji regulaminu w Serwisie.
-                </p>
-
+                {Array.isArray(termsData) &&
+                  termsData.map((section, index) => (
+                    <div key={index}>
+                      <h2>{section.title}</h2>
+                      {section.content && <p>{section.content}</p>}
+                      {section.definitions &&
+                        section.definitions.map((def, defIndex) => (
+                          <p key={defIndex}>
+                            <strong>{def.term}</strong> - {def.def}
+                          </p>
+                        ))}
+                    </div>
+                  ))}
                 <p className="text-sm text-gray-500 mt-8">
-                  Ostatnia aktualizacja: {new Date().toLocaleDateString('pl-PL')}
+                  {t("pages.common.lastUpdated")}: {lastUpdate}
                 </p>
               </div>
             </div>
