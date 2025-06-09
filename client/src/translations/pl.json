@@ -58,7 +58,8 @@
       "title": "Pisanie Tekstów",
       "desc": "Generowanie artykułów, raportów i kreatywnych treści"
     },
-    "tryButton": "Wypróbuj"
+    "tryButton": "Wypróbuj",
+    "processing": "Przetwarzanie..."
   },
   "myths": {
     "title": "Mity i fakty o AI",

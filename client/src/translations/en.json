@@ -58,7 +58,8 @@
       "title": "Text Writing",
       "desc": "Generating articles, reports and creative content"
     },
-    "tryButton": "Try Now"
+    "tryButton": "Try Now",
+    "processing": "Processing..."
   },
   "myths": {
     "title": "AI Myths & Facts",
