@@ -81,17 +81,13 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="/regulamin">
-                  <a className="hover:text-blue-400 transition-colors">
-                    {t('footer.terms')}
-                  </a>
+                <Link href="/regulamin" className="hover:text-blue-400 transition-colors">
+                  {t('footer.terms')}
                 </Link>
               </li>
               <li>
-                <Link href="/polityka-prywatnosci">
-                  <a className="hover:text-blue-400 transition-colors">
-                    {t('footer.privacy')}
-                  </a>
+                <Link href="/polityka-prywatnosci" className="hover:text-blue-400 transition-colors">
+                  {t('footer.privacy')}
                 </Link>
               </li>
             </ul>
