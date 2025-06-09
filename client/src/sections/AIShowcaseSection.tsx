@@ -10,6 +10,27 @@ export function AIShowcaseSection() {
 
   const handleTryDemo = (type: string) => {
     setActiveDemo(type);
+    
+    // For music demo, simulate audio with Web Audio API
+    if (type === 'music') {
+      try {
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A note
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + 0.5);
+      } catch (error) {
+        console.log('Audio not supported');
+      }
+    }
+    
     // Simulate demo activation
     setTimeout(() => {
       setActiveDemo(null);
@@ -73,7 +94,7 @@ export function AIShowcaseSection() {
       titleKey: 'showcase.video.title',
       descKey: 'showcase.video.desc',
       content: (
-        <div className="w-70 h-50 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-lg shadow-lg flex items-center justify-center relative overflow-hidden">
+        <div className="w-72 h-48 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-lg shadow-lg flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           <motion.div
             animate={
@@ -98,7 +119,7 @@ export function AIShowcaseSection() {
       titleKey: 'showcase.music.title',
       descKey: 'showcase.music.desc',
       content: (
-        <div className="w-70 h-50 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-lg shadow-lg flex flex-col items-center justify-center p-4">
+        <div className="w-72 h-48 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-lg shadow-lg flex flex-col items-center justify-center p-4">
           <div className="flex space-x-1 mb-4">
             {[...Array(8)].map((_, i) => (
               <motion.div
@@ -130,7 +151,7 @@ export function AIShowcaseSection() {
       titleKey: 'showcase.text.title',
       descKey: 'showcase.text.desc',
       content: (
-        <div className="w-70 h-50 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-4 flex flex-col">
+        <div className="w-72 h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg p-4 flex flex-col">
           <div className="flex items-center mb-3">
             <FileText className="w-5 h-5 text-blue-600 mr-2" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -203,8 +224,10 @@ export function AIShowcaseSection() {
                   </p>
                 </div>
 
-                <div className="mb-4 flex justify-center">
-                  {item.content}
+                <div className="mb-4 flex justify-center min-h-[200px] items-center">
+                  <div className="relative">
+                    {item.content}
+                  </div>
                 </div>
 
                 <Button 
