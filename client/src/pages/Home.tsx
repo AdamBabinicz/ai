@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/sections/HeroSection";
 import { HowItWorksSection } from "@/sections/HowItWorksSection";
+import { AIShowcaseSection } from "@/sections/AIShowcaseSection";
 import { GeneratorSection } from "@/sections/GeneratorSection";
 import { MythsSection } from "@/sections/MythsSection";
 
@@ -24,6 +25,7 @@ export default function Home() {
         <main>
           <HeroSection />
           <HowItWorksSection />
+          <AIShowcaseSection />
           <GeneratorSection />
           <MythsSection />
         </main>

@@ -38,6 +38,27 @@
     "button": "Generuj predykcję",
     "loading": "Analizuję trendy AI..."
   },
+  "showcase": {
+    "title": "AI w Akcji",
+    "description": "Zobacz przykłady tego, co sztuczna inteligencja może tworzyć już dziś - od obrazów po muzykę i teksty",
+    "image": {
+      "title": "Generowanie Obrazów",
+      "desc": "AI tworzy fotorealistyczne obrazy z opisów tekstowych"
+    },
+    "video": {
+      "title": "Produkcja Wideo",
+      "desc": "Automatyczne tworzenie filmów i animacji"
+    },
+    "music": {
+      "title": "Kompozycja Muzyki",
+      "desc": "AI komponuje oryginalne utwory w każdym stylu"
+    },
+    "text": {
+      "title": "Pisanie Tekstów",
+      "desc": "Generowanie artykułów, raportów i kreatywnych treści"
+    },
+    "tryButton": "Wypróbuj"
+  },
   "myths": {
     "title": "Mity i fakty o AI",
     "description": "Odkryj prawdę o sztucznej inteligencji i poznaj fakty, które mogą Cię zaskoczyć",

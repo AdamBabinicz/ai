@@ -80,11 +80,25 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 glow-effect">
+            <Button 
+              onClick={() => {
+                const element = document.querySelector('#generator');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 glow-effect"
+            >
               {t('hero.cta')}
             </Button>
             <Button 
               variant="outline" 
+              onClick={() => {
+                const element = document.querySelector('#how-it-works');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="px-8 py-4 glass-effect border-blue-400/50 text-gray-800 dark:text-white bg-white/20 dark:bg-transparent font-semibold rounded-full hover:bg-white/30 dark:hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
             >
               {t('hero.learnMore')}

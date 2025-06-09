@@ -38,6 +38,27 @@
     "button": "Generate Prediction",
     "loading": "Analyzing AI trends..."
   },
+  "showcase": {
+    "title": "AI in Action",
+    "description": "See examples of what artificial intelligence can create today - from images to music and text",
+    "image": {
+      "title": "Image Generation",
+      "desc": "AI creates photorealistic images from text descriptions"
+    },
+    "video": {
+      "title": "Video Production",
+      "desc": "Automatic creation of films and animations"
+    },
+    "music": {
+      "title": "Music Composition",
+      "desc": "AI composes original tracks in any style"
+    },
+    "text": {
+      "title": "Text Writing",
+      "desc": "Generating articles, reports and creative content"
+    },
+    "tryButton": "Try Now"
+  },
   "myths": {
     "title": "AI Myths & Facts",
     "description": "Discover the truth about artificial intelligence and learn facts that might surprise you",
