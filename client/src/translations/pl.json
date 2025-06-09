@@ -16,27 +16,27 @@
     "learnMore": "Dowiedz się więcej"
   },
   "howItWorks": {
-    "title": "Jak to działa",
-    "description": "Prosty, ale potężny proces transformacji danych w inteligentne rozwiązania",
+    "title": "Jak działa sztuczna inteligencja",
+    "description": "Poznaj proces, w którym AI przekształca surowe dane w praktyczne rozwiązania dla codziennych problemów",
     "step1": {
       "title": "Dane",
-      "description": "Gromadzenie i przygotowanie wysokiej jakości danych wejściowych"
+      "description": "AI analizuje ogromne ilości informacji z różnych źródeł - teksty, obrazy, dźwięki i liczby"
     },
     "step2": {
       "title": "Model",
-      "description": "Zaawansowane algorytmy uczenia maszynowego przetwarzają informacje"
+      "description": "Algorytmy uczą się wzorców i zależności, tworząc inteligentny system decyzyjny"
     },
     "step3": {
       "title": "Wynik",
-      "description": "Inteligentne rozwiązania gotowe do praktycznego zastosowania"
+      "description": "AI generuje dokładne predykcje, rekomendacje i rozwiązania dostosowane do Twoich potrzeb"
     }
   },
   "generator": {
-    "title": "Generator AI",
-    "description": "Doświadcz mocy sztucznej inteligencji. Kliknij przycisk, aby wygenerować losową predykcję o przyszłości AI.",
-    "placeholder": "Kliknij przycisk, aby odkryć przyszłość AI...",
+    "title": "Generator Predykcji AI",
+    "description": "Interaktywny generator, który pokazuje fascynujące przewidywania ekspertów na temat rozwoju sztucznej inteligencji w nadchodzących latach. Każde kliknięcie odkrywa nową wizję przyszłości technologii.",
+    "placeholder": "Kliknij przycisk, aby odkryć fascynującą predykcję o przyszłości AI...",
     "button": "Generuj predykcję",
-    "loading": "Generowanie..."
+    "loading": "Analizuję trendy AI..."
   },
   "myths": {
     "title": "Mity i fakty o AI",

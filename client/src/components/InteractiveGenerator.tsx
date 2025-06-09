@@ -49,7 +49,7 @@ export function InteractiveGenerator() {
           >
             <div className="text-center">
               <Sparkles className="w-12 h-12 text-blue-500 mx-auto mb-4 animate-pulse" />
-              <p className="text-2xl md:text-3xl text-foreground font-light leading-relaxed">
+              <p className="text-2xl md:text-3xl text-gray-800 dark:text-foreground font-light leading-relaxed">
                 {generatedText}
               </p>
             </div>

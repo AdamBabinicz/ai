@@ -20,7 +20,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="glass-effect hover:bg-white/10 dark:hover:bg-white/10"
+      className="glass-effect hover:bg-gray-200/20 dark:hover:bg-white/10 border border-gray-300/30 dark:border-white/20"
     >
       <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

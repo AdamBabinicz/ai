@@ -24,7 +24,7 @@ export function LanguageSelector() {
         <Button 
           variant="ghost" 
           size="sm"
-          className="glass-effect hover:bg-white/10 dark:hover:bg-white/10 gap-2"
+          className="glass-effect hover:bg-gray-200/20 dark:hover:bg-white/10 border border-gray-300/30 dark:border-white/20 gap-2"
         >
           <Globe className="h-4 w-4" />
           <span className="text-sm font-medium">

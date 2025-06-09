@@ -16,27 +16,27 @@
     "learnMore": "Learn More"
   },
   "howItWorks": {
-    "title": "How It Works",
-    "description": "Simple yet powerful process of transforming data into intelligent solutions",
+    "title": "How Artificial Intelligence Works",
+    "description": "Discover the process by which AI transforms raw data into practical solutions for everyday problems",
     "step1": {
       "title": "Data",
-      "description": "Collecting and preparing high-quality input data"
+      "description": "AI analyzes vast amounts of information from various sources - text, images, sounds, and numbers"
     },
     "step2": {
       "title": "Model",
-      "description": "Advanced machine learning algorithms process information"
+      "description": "Algorithms learn patterns and relationships, creating an intelligent decision-making system"
     },
     "step3": {
       "title": "Result",
-      "description": "Intelligent solutions ready for practical application"
+      "description": "AI generates accurate predictions, recommendations, and solutions tailored to your needs"
     }
   },
   "generator": {
-    "title": "AI Generator",
-    "description": "Experience the power of artificial intelligence. Click the button to generate a random prediction about AI's future.",
-    "placeholder": "Click the button to discover AI's future...",
+    "title": "AI Prediction Generator",
+    "description": "Interactive generator that showcases fascinating expert predictions about artificial intelligence development in the coming years. Each click reveals a new vision of technology's future.",
+    "placeholder": "Click the button to discover a fascinating prediction about AI's future...",
     "button": "Generate Prediction",
-    "loading": "Generating..."
+    "loading": "Analyzing AI trends..."
   },
   "myths": {
     "title": "AI Myths & Facts",
