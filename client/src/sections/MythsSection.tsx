@@ -8,7 +8,7 @@ export function MythsSection() {
   const myths = ['myth1', 'myth2', 'myth3', 'myth4', 'myth5', 'myth6'];
 
   return (
-    <section id="myths" className="py-20 bg-gray-800/50 dark:bg-gray-800/50">
+    <section id="myths" className="py-20 bg-gray-100 dark:bg-gray-800/50" style={{ backgroundColor: 'var(--section-bg)' }}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"

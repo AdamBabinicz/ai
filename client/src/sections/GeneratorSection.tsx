@@ -6,7 +6,7 @@ export function GeneratorSection() {
   const { t } = useTranslation();
 
   return (
-    <section id="generator" className="py-20 bg-gray-900 dark:bg-gray-900">
+    <section id="generator" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ backgroundColor: 'var(--section-alt-bg)' }}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"

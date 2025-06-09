@@ -24,7 +24,7 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-gray-800/50 dark:bg-gray-800/50">
+    <section id="how-it-works" className="py-20 bg-gray-100 dark:bg-gray-800/50" style={{ backgroundColor: 'var(--section-bg)' }}>
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"

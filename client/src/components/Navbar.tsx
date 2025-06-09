@@ -50,7 +50,7 @@ export function Navbar() {
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.section)}
-                className="hover:text-blue-400 transition-colors duration-200 text-gray-300 hover:text-primary"
+                className="hover:text-blue-400 transition-colors duration-200 text-gray-700 dark:text-gray-300 hover:text-primary"
               >
                 {t(`nav.${item.key}`)}
               </button>

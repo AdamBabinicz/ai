@@ -85,7 +85,7 @@ export function HeroSection() {
             </Button>
             <Button 
               variant="outline" 
-              className="px-8 py-4 glass-effect border-blue-400/50 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 glass-effect border-blue-400/50 text-gray-800 dark:text-white bg-white/20 dark:bg-transparent font-semibold rounded-full hover:bg-white/30 dark:hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
             >
               {t('hero.learnMore')}
             </Button>
