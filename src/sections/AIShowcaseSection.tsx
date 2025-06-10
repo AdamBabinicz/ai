@@ -60,7 +60,7 @@ export function AIShowcaseSection() {
         >
           <div className="w-72 h-96 relative">
             <img
-              src="/assets/ai-generated-image.png"
+              src="/assets/ai-generated-image.avif"
               alt="AI Generated Futuristic Portrait"
               className="w-72 h-96 rounded-lg shadow-lg object-cover"
             />
