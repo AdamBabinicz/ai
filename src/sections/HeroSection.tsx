@@ -19,7 +19,7 @@ export function HeroSection() {
       id={t("nav.anchors.home")}
       className="min-h-screen flex items-center justify-center bg-circuit-background bg-cover bg-center relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       <div className="absolute inset-0 opacity-20">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"
