@@ -1,10 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "wouter";
-import { routes } from "@/routes"; // Zakładamy, że to jest nasz plik konfiguracyjny
+import { routes } from "@/routes";
 import i18n from "@/i18n";
 
-// Typy i funkcje pomocnicze (powinny być w osobnym pliku, np. /lib/routing.ts)
 const supportedLngs = ["pl", "en"] as const;
 type SupportedLanguage = (typeof supportedLngs)[number];
 const defaultLang: SupportedLanguage = "pl";
@@ -25,7 +24,6 @@ const getKeyFromPath = (
   }
   return null;
 };
-// Koniec typów i funkcji pomocniczych
 
 interface BreadcrumbItem {
   "@type": "ListItem";
@@ -44,7 +42,7 @@ export function SeoManager() {
   const { t } = useTranslation();
   const [locationPath] = useLocation();
 
-  const baseUrl = "https://neural-core.netlify.app/";
+  const baseUrl = "https://neural-core.netlify.app";
   const pathOnly = locationPath.split("#")[0];
 
   const pageKey =
@@ -61,7 +59,7 @@ export function SeoManager() {
     "@id": baseUrl,
     name: t("site.name"),
     url: baseUrl,
-    logo: `${baseUrl}/favicons/android-chrome-512x512.png`, // Upewnij się, że ten plik istnieje
+    logo: `${baseUrl}/favicons/android-chrome-512x512.png`, //
   };
 
   const websiteSchema = {
@@ -73,7 +71,7 @@ export function SeoManager() {
   };
 
   const getBreadcrumbList = (): BreadcrumbListSchema | null => {
-    if (pageKey === "home") return null; // Nie pokazuj breadcrumbs na stronie głównej
+    if (pageKey === "home") return null;
 
     const homePath = getPathByKey("home", i18n.language as SupportedLanguage);
     const currentPagePath = getPathByKey(
