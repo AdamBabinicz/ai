@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { useTranslation } from "react-i18next";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -47,6 +47,11 @@ export function Navbar() {
     }, 300);
   };
 
+  // NOWA FUNKCJA DO OBSŁUGI KLIKNIĘCIA W LOGO
+  const scrollToTop = () => {
+    scrollToSection(t("nav.anchors.home"));
+  };
+
   const renderLinks = () =>
     navLinks.map((link) => (
       <button
@@ -71,9 +76,10 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
+            {/* ZMIANA: <Link> ZASTĄPIONY PRZEZ <button> */}
+            <button
+              onClick={scrollToTop}
+              aria-label={t("nav.home")}
               className="flex items-center space-x-2 cursor-pointer"
             >
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -86,7 +92,8 @@ export function Navbar() {
               <span className="text-xl font-bold gradient-text">
                 {t("site.name")}
               </span>
-            </Link>
+            </button>
+            {/* KONIEC ZMIANY */}
 
             <nav className="hidden md:flex items-center space-x-6">
               {renderLinks()}
