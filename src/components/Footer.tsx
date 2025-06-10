@@ -20,7 +20,12 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Zap className="text-white h-5 w-5" />
+                {/* <Zap className="text-white h-5 w-5" /> */}
+                <img
+                  src="/assets/2.avif"
+                  alt="logo AI"
+                  className="w-72 aspect-[227/218] object-contain"
+                />
               </div>
               <span className="text-xl font-bold gradient-text">
                 {t("site.name")}
