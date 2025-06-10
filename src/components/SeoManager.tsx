@@ -44,14 +44,11 @@ export function SeoManager() {
 
   const baseUrl = "https://neural-core.netlify.app";
   const pathOnly = locationPath.split("#")[0];
+  const currentLanguage = i18n.language as SupportedLanguage;
 
-  const pageKey =
-    getKeyFromPath(pathOnly, i18n.language as SupportedLanguage) || "home";
+  const pageKey = getKeyFromPath(pathOnly, currentLanguage) || "home";
 
-  const canonicalUrl = `${baseUrl}${getPathByKey(
-    pageKey,
-    i18n.language as SupportedLanguage
-  )}`;
+  const canonicalUrl = `${baseUrl}${getPathByKey(pageKey, currentLanguage)}`;
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -59,7 +56,7 @@ export function SeoManager() {
     "@id": baseUrl,
     name: t("site.name"),
     url: baseUrl,
-    logo: `${baseUrl}/favicons/android-chrome-512x512.png`, //
+    logo: `${baseUrl}/favicons/android-chrome-512x512.png`,
   };
 
   const websiteSchema = {
@@ -67,17 +64,31 @@ export function SeoManager() {
     "@type": "WebSite",
     name: t("site.name"),
     url: baseUrl,
-    inLanguage: i18n.language,
+    inLanguage: currentLanguage,
   };
 
   const getBreadcrumbList = (): BreadcrumbListSchema | null => {
     if (pageKey === "home") return null;
 
-    const homePath = getPathByKey("home", i18n.language as SupportedLanguage);
-    const currentPagePath = getPathByKey(
-      pageKey,
-      i18n.language as SupportedLanguage
-    );
+    const homePath = getPathByKey("home", currentLanguage);
+    const currentPagePath = getPathByKey(pageKey, currentLanguage);
+
+    let pageTitle = "";
+    switch (pageKey) {
+      case "terms":
+        pageTitle = t("pages.terms.title");
+        break;
+      case "privacy":
+        pageTitle = t("pages.privacy.title");
+        break;
+      default:
+        pageTitle = t(`pages.${pageKey}.title`, { defaultValue: "" });
+        break;
+    }
+
+    if (!pageTitle) {
+      return null;
+    }
 
     const itemList: BreadcrumbItem[] = [
       {
@@ -86,20 +97,13 @@ export function SeoManager() {
         name: t("nav.home"),
         item: `${baseUrl}${homePath}`,
       },
-    ];
-
-    if (pageKey !== "home") {
-      let pageTitle = "";
-      if (pageKey === "terms") pageTitle = t("pages.terms.title");
-      if (pageKey === "privacy") pageTitle = t("pages.privacy.title");
-
-      itemList.push({
+      {
         "@type": "ListItem",
         position: 2,
         name: pageTitle,
         item: `${baseUrl}${currentPagePath}`,
-      });
-    }
+      },
+    ];
 
     return {
       "@context": "https://schema.org",

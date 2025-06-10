@@ -32,16 +32,19 @@ export function Navbar() {
   ];
 
   const scrollToSection = (anchor: string) => {
-    const sectionId = `#${anchor}`;
-    if (location !== "/") {
-      window.location.href = `/${sectionId}`;
-    } else {
-      const element = document.querySelector(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
     setMobileMenuOpen(false);
+
+    setTimeout(() => {
+      const sectionId = `#${anchor}`;
+      if (location !== "/") {
+        window.location.href = `/${sectionId}`;
+      } else {
+        const element = document.querySelector(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, 300);
   };
 
   const renderLinks = () =>
