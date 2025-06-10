@@ -2,32 +2,81 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1"
-    />
-    <title>FutureAI - The future is not human-only</title>
+    <meta name="viewport" content="width=device-width," />
+
+    <!-- Podstawowe meta tagi (będą nadpisywane przez React Helmet, ale służą jako fallback) -->
+    <title>FutureAI - Przyszłość sztucznej inteligencji</title>
     <meta
       name="description"
-      content="Discover the future of artificial intelligence with FutureAI. Interactive tools, education and latest AI trends."
+      content="Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś. Interaktywne narzędzia, edukacja i najnowsze trendy AI."
     />
     <meta
       name="keywords"
-      content="AI, artificial intelligence, future, technology, machine learning"
+      content="AI, sztuczna inteligencja, przyszłość, technologia, uczenie maszynowe, modele językowe"
     />
 
-    <!-- Open Graph tags -->
+    <!-- Kolor paska przeglądarki na mobile -->
+    <meta name="theme-color" content="#6366F1" />
+    <!-- Tytuł dla aplikacji webowej na iOS -->
+    <meta name="apple-mobile-web-app-title" content="FutureAI" />
+
+    <!-- Tagi Open Graph (dla Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://neural-core.netlify.app/" />
+    <meta property="og:site_name" content="FutureAI" />
+    <meta property="og:locale" content="pl_PL" />
     <meta
       property="og:title"
-      content="FutureAI - The future is not human-only"
+      content="FutureAI - Przyszłość nie należy tylko do ludzi."
     />
     <meta
       property="og:description"
-      content="Discover the future of artificial intelligence with FutureAI. Interactive tools, education and latest AI trends."
+      content="Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś."
     />
-    <meta property="og:type" content="website" />
+    <!-- Upewnij się, że ten obrazek istnieje w folderze /public -->
+    <meta
+      property="og:image"
+      content="https://neural-core.netlify.app/assets/8.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://neural-core.netlify.app/assets/7.png"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-    <!-- Preload fonts -->
+    <!-- Tagi Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@FutureAI_Project" />
+    <!-- Placeholder dla konta na Twitterze -->
+    <meta
+      name="twitter:title"
+      content="FutureAI - Przyszłość nie należy tylko do ludzi."
+    />
+    <meta
+      name="twitter:description"
+      content="Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś."
+    />
+    <meta
+      name="twitter:image"
+      content="https://neural-core.netlify.app/assets/2.png"
+    />
+
+    <!-- Link kanoniczny (zarządzany przez React Helmet) -->
+    <link
+      data-rh="true"
+      rel="canonical"
+      href="https://neural-core.netlify.app/"
+    />
+
+    <!-- Favicony -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload czcionek -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

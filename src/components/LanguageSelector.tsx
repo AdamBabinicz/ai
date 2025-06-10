@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useLocation } from "wouter"; // Usunięty import 'navigate'
+import { useLocation } from "wouter";
 import { ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,11 +12,20 @@ import { routes } from "@/routes";
 
 type SupportedLanguage = "pl" | "en";
 
-export function LanguageSelector() {
-  const { i18n } = useTranslation();
-  const [location, setLocation] = useLocation(); // Pobieramy funkcję do nawigacji
+// ZMIANA TUTAJ: Dodajemy 'variant' do interfejsu
+interface LanguageSelectorProps {
+  onAction?: () => void;
+  variant?: "dropdown" | "inline";
+}
 
-  const changeLanguage = (lng: SupportedLanguage) => {
+export function LanguageSelector({
+  onAction,
+  variant = "dropdown", // Odbieramy 'variant' z domyślną wartością
+}: LanguageSelectorProps) {
+  const { i18n } = useTranslation();
+  const [location, setLocation] = useLocation();
+
+  const handleLanguageChange = (lng: SupportedLanguage) => {
     const currentLang = i18n.language as SupportedLanguage;
     const pathWithoutHash = location.split("#")[0];
 
@@ -31,10 +40,36 @@ export function LanguageSelector() {
     const newPath = routes.find((r) => r.key === currentKey)?.paths[lng] || "/";
 
     i18n.changeLanguage(lng).then(() => {
-      // Używamy setLocation zamiast navigate
       setLocation(newPath, { replace: true });
     });
+
+    onAction?.();
   };
+
+  if (variant === "inline") {
+    return (
+      <div className="flex items-center gap-2">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => handleLanguageChange("pl")}
+          disabled={i18n.language === "pl"}
+          className="glass-effect hover:bg-gray-200/20 dark:hover:bg-white/10 border border-gray-300/30 dark:border-white/20"
+        >
+          🇵🇱 PL
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => handleLanguageChange("en")}
+          disabled={i18n.language === "en"}
+          className="glass-effect hover:bg-gray-200/20 dark:hover:bg-white/10 border border-gray-300/30 dark:border-white/20"
+        >
+          🇬🇧 EN
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <DropdownMenu>
@@ -53,14 +88,14 @@ export function LanguageSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="glass-effect border border-white/20">
         <DropdownMenuItem
-          onClick={() => changeLanguage("pl")}
+          onClick={() => handleLanguageChange("pl")}
           className="hover:bg-white/10 dark:hover:bg-white/10"
           disabled={i18n.language === "pl"}
         >
           🇵🇱 Polski
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => changeLanguage("en")}
+          onClick={() => handleLanguageChange("en")}
           className="hover:bg-white/10 dark:hover:bg-white/10"
           disabled={i18n.language === "en"}
         >

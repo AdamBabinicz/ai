@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: [
-    "./index.html", // Skanuj główny plik HTML
-    "./src/**/*.{js,jsx,ts,tsx}", // Skanuj wszystkie pliki w folderze src
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      // DODAJ TĘ SEKCJĘ
+      backgroundImage: {
+        "circuit-background": "url('/assets/6.avif')",
+      },
+      // KONIEC SEKCJI DO DODANIA
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

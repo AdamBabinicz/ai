@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -18,8 +17,9 @@ export function HeroSection() {
   return (
     <section
       id={t("nav.anchors.home")}
-      className="min-h-screen flex items-center justify-center parallax-bg relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-circuit-background bg-cover bg-center relative overflow-hidden"
     >
+      <div className="absolute inset-0 bg-black/40"></div>
       <div className="absolute inset-0 opacity-20">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"
@@ -54,7 +54,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6">
             <TypeAnimation
               key={t("hero.title")}
               sequence={[t("hero.title"), 2000]}
@@ -110,14 +110,6 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <ChevronDown className="w-6 h-6 text-blue-400" />
-      </motion.div>
     </section>
   );
 }
