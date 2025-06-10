@@ -44,7 +44,7 @@ export function SeoManager() {
   const { t } = useTranslation();
   const [locationPath] = useLocation();
 
-  const baseUrl = "https://www.future-ai-project.com"; // Zmień na prawdziwy URL
+  const baseUrl = "https://neural-core.netlify.app/";
   const pathOnly = locationPath.split("#")[0];
 
   const pageKey =
