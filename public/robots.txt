@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://neural-core.netlify.app/sitemap.xml
+Host: https://neural-core.netlify.app
