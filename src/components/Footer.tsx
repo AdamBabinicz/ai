@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { routes } from "@/routes";
-import { Zap, Twitter, Linkedin, Github } from "lucide-react";
+import { Twitter, Linkedin, Github, Facebook } from "lucide-react";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -13,6 +13,13 @@ export function Footer() {
     return route ? route.paths[currentLang] : "/";
   };
 
+  const foundingYear = 2025;
+  const currentYear = new Date().getFullYear();
+  const yearDisplay =
+    currentYear > foundingYear
+      ? `${foundingYear} - ${currentYear}`
+      : foundingYear;
+
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 py-12">
       <div className="container mx-auto px-4">
@@ -20,7 +27,6 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                {/* <Zap className="text-white h-5 w-5" /> */}
                 <img
                   src="/assets/2.avif"
                   alt="logo AI"
@@ -36,23 +42,29 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-4">
               <a
-                href="#"
+                href="https://x.com/AdamBabinicz"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Twitter className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/adam.gierczak.334"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Linkedin className="w-6 h-6" />
+                <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://github.com/AdamBabinicz"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Github className="w-6 h-6" />
               </a>
@@ -130,7 +142,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>{t("footer.copyright")}</p>
+          <p>{t("footer.copyright", { year: yearDisplay })}</p>
         </div>
       </div>
     </footer>

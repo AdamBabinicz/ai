@@ -120,7 +120,7 @@
     "privacy": "Privacy Policy",
     "cookies": "Cookie Policy",
     "contact": "Contact",
-    "copyright": "© 2024 FutureAI. All rights reserved. Designed with 💙 for the future of AI."
+    "copyright": "© {{year}} FutureAI. Radom. Designed with 💙 for the future of AI."
   },
   "pages": {
     "common": {
