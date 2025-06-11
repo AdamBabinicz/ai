@@ -10,7 +10,7 @@ import { SeoManager } from "./components/SeoManager";
 import { queryClient } from "./lib/queryClient";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import { routes } from "./routes";
-
+import { ScrollToTopButton } from "./components/ScrollToTopButton";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -46,6 +46,7 @@ function App() {
             </Helmet>
             <Toaster />
             <Router />
+            <ScrollToTopButton />
           </TooltipProvider>
         </ThemeProvider>
       </QueryClientProvider>

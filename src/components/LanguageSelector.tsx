@@ -12,7 +12,6 @@ import { routes } from "@/routes";
 
 type SupportedLanguage = "pl" | "en";
 
-// ZMIANA TUTAJ: Dodajemy 'variant' do interfejsu
 interface LanguageSelectorProps {
   onAction?: () => void;
   variant?: "dropdown" | "inline";
@@ -20,27 +19,29 @@ interface LanguageSelectorProps {
 
 export function LanguageSelector({
   onAction,
-  variant = "dropdown", // Odbieramy 'variant' z domyślną wartością
+  variant = "dropdown",
 }: LanguageSelectorProps) {
   const { i18n } = useTranslation();
   const [location, setLocation] = useLocation();
 
   const handleLanguageChange = (lng: SupportedLanguage) => {
-    const currentLang = i18n.language as SupportedLanguage;
-    const pathWithoutHash = location.split("#")[0];
+    const [path, hash] = location.split("#");
 
-    let currentKey = "home";
-    for (const route of routes) {
-      if (route.paths[currentLang] === pathWithoutHash) {
-        currentKey = route.key;
-        break;
+    const findCurrentRouteKey = () => {
+      for (const route of routes) {
+        if (Object.values(route.paths).includes(path)) {
+          return route.key;
+        }
       }
-    }
+      return "home";
+    };
 
+    const currentKey = findCurrentRouteKey();
     const newPath = routes.find((r) => r.key === currentKey)?.paths[lng] || "/";
+    const finalPath = hash ? `${newPath}#${hash}` : newPath;
 
     i18n.changeLanguage(lng).then(() => {
-      setLocation(newPath, { replace: true });
+      setLocation(finalPath, { replace: true });
     });
 
     onAction?.();

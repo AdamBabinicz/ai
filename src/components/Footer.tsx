@@ -2,10 +2,12 @@ import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { routes } from "@/routes";
-import { Twitter, Linkedin, Github, Facebook } from "lucide-react";
+import { Twitter, Github, Facebook } from "lucide-react";
+import { useLocation } from "wouter";
 
 export function Footer() {
   const { t } = useTranslation();
+  const [location] = useLocation();
   const currentLang = i18n.language as "pl" | "en";
 
   const getPath = (key: string) => {
@@ -19,6 +21,29 @@ export function Footer() {
     currentYear > foundingYear
       ? `${foundingYear} - ${currentYear}`
       : foundingYear;
+
+  // Ta sama logika co w Navbarze, dla spójności
+  const handleSmoothScroll = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    anchor: string
+  ) => {
+    if (location === "/") {
+      event.preventDefault();
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `#${anchor}`);
+      }
+    }
+  };
+
+  const navLinks = [
+    { labelKey: "nav.home", anchorKey: "nav.anchors.home" },
+    { labelKey: "nav.howItWorks", anchorKey: "nav.anchors.howItWorks" },
+    { labelKey: "nav.showcase", anchorKey: "nav.anchors.showcase" },
+    { labelKey: "nav.generator", anchorKey: "nav.anchors.generator" },
+    { labelKey: "nav.myths", anchorKey: "nav.anchors.myths" },
+  ];
 
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 py-12">
@@ -75,46 +100,17 @@ export function Footer() {
               {t("footer.navigation")}
             </h3>
             <ul className="space-y-2 text-gray-400">
-              <li>
-                <a
-                  href={`#${t("nav.anchors.home")}`}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("nav.home")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`#${t("nav.anchors.howItWorks")}`}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("nav.howItWorks")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`#${t("nav.anchors.showcase")}`}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("nav.showcase")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`#${t("nav.anchors.generator")}`}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("nav.generator")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`#${t("nav.anchors.myths")}`}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("nav.myths")}
-                </a>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.labelKey}>
+                  <a
+                    href={`/#${t(link.anchorKey)}`}
+                    onClick={(e) => handleSmoothScroll(e, t(link.anchorKey))}
+                    className="hover:text-blue-400 transition-colors"
+                  >
+                    {t(link.labelKey)}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

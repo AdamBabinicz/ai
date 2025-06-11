@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const { t } = useTranslation();
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -31,32 +31,31 @@ export function Navbar() {
     { labelKey: "nav.myths", anchorKey: "nav.anchors.myths" },
   ];
 
-  const scrollToSection = (anchor: string) => {
+  const handleSmoothScroll = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    anchor: string
+  ) => {
     setMobileMenuOpen(false);
 
-    setTimeout(() => {
-      const sectionId = `#${anchor}`;
-      if (location !== "/") {
-        window.location.href = `/${sectionId}`;
-      } else {
-        const element = document.querySelector(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+    if (location === "/") {
+      event.preventDefault();
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        // Czysta aktualizacja URL bez przeładowania
+        window.history.pushState(null, "", `#${anchor}`);
       }
-    }, 300);
-  };
-
-  // NOWA FUNKCJA DO OBSŁUGI KLIKNIĘCIA W LOGO
-  const scrollToTop = () => {
-    scrollToSection(t("nav.anchors.home"));
+    }
+    // Jeśli nie jesteśmy na stronie głównej, <a> zadziała domyślnie,
+    // nawigując do `/#anchor`, co jest pożądanym zachowaniem.
   };
 
   const renderLinks = () =>
     navLinks.map((link) => (
-      <button
+      <a
         key={link.labelKey}
-        onClick={() => scrollToSection(t(link.anchorKey))}
+        href={`/#${t(link.anchorKey)}`}
+        onClick={(e) => handleSmoothScroll(e, t(link.anchorKey))}
         className={`transition-colors duration-200 py-2 text-base ${
           hasNavbarBg
             ? "text-muted-foreground hover:text-foreground"
@@ -64,7 +63,7 @@ export function Navbar() {
         }`}
       >
         {t(link.labelKey)}
-      </button>
+      </a>
     ));
 
   return (
@@ -76,9 +75,9 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* ZMIANA: <Link> ZASTĄPIONY PRZEZ <button> */}
-            <button
-              onClick={scrollToTop}
+            <a
+              href={`/#${t("nav.anchors.home")}`}
+              onClick={(e) => handleSmoothScroll(e, t("nav.anchors.home"))}
               aria-label={t("nav.home")}
               className="flex items-center space-x-2 cursor-pointer"
             >
@@ -92,8 +91,7 @@ export function Navbar() {
               <span className="text-xl font-bold gradient-text">
                 {t("site.name")}
               </span>
-            </button>
-            {/* KONIEC ZMIANY */}
+            </a>
 
             <nav className="hidden md:flex items-center space-x-6">
               {renderLinks()}
