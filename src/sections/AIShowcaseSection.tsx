@@ -47,7 +47,7 @@ export function AIShowcaseSection() {
   const videoUrlWebm =
     "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749641582/ai-generated-video_dgwkpa.webm";
   const musicUrlMp3 =
-    "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749664577/emotional-romantic-optimized-30s_wq6buu.mp3";
+    "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749665049/emotional-romantic-optimized-30s-96kbps_fxzsrk.mp3";
   // ===================================================
 
   const handleTryDemo = (type: string) => {
