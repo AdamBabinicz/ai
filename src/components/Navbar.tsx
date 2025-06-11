@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const { t } = useTranslation();
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,19 +35,20 @@ export function Navbar() {
     event: React.MouseEvent<HTMLAnchorElement>,
     anchor: string
   ) => {
+    event.preventDefault();
     setMobileMenuOpen(false);
 
-    if (location === "/") {
-      event.preventDefault();
-      const element = document.getElementById(anchor);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        // Czysta aktualizacja URL bez przeładowania
-        window.history.pushState(null, "", `#${anchor}`);
+    setTimeout(() => {
+      if (location === "/") {
+        const element = document.getElementById(anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `#${anchor}`);
+        }
+      } else {
+        window.location.href = `/#${anchor}`;
       }
-    }
-    // Jeśli nie jesteśmy na stronie głównej, <a> zadziała domyślnie,
-    // nawigując do `/#anchor`, co jest pożądanym zachowaniem.
+    }, 300);
   };
 
   const renderLinks = () =>
