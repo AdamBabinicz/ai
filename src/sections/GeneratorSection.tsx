@@ -8,8 +8,7 @@ export function GeneratorSection() {
   return (
     <section
       id={t("nav.anchors.generator")}
-      className="py-20"
-      style={{ background: "var(--section-bg)" }}
+      className="py-20 bg-[var(--section-bg)]"
     >
       <div className="container mx-auto px-4">
         <motion.div
