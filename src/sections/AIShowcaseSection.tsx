@@ -45,7 +45,7 @@ export function AIShowcaseSection() {
   const videoUrlMp4 =
     "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749639530/ai-generated-video_f4hhq3.mp4";
   const videoUrlWebm =
-    "https://res.cloudinary.com/demo/video/upload/docs/ai-generated-video.webm";
+    "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749641582/ai-generated-video_dgwkpa.webm";
   const musicUrlMp3 =
     "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749639527/ai-generated-music_qaghxw.mp3";
   // ===================================================
