@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "FutureAI",
-    "title": "FutureAI - Przyszłość sztucznej inteligencji"
+    "title": "FutureAI - Przyszłość sztucznej inteligencji | Poznaj moc AI"
   },
   "nav": {
     "home": "Strona główna",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "Przyszłość nie należy tylko do ludzi.",
-    "subtitle": "Odkryj nieograniczone możliwości sztucznej inteligencji i kształtuj przyszłość technologii już dziś",
+    "subtitle": "Odkryj pełen potencjał sztucznej inteligencji i zacznij aktywnie kształtować przyszłość technologii. Sprawdź nasze narzędzia, bazę wiedzy i analizy AI",
     "cta": "Rozpocznij eksplorację",
     "learnMore": "Dowiedz się więcej"
   },

@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "FutureAI",
-    "title": "FutureAI - The Future of Artificial Intelligence"
+    "title": "FutureAI – The Future of Artificial Intelligence | Build AI."
   },
   "nav": {
     "home": "Home",
@@ -19,7 +19,7 @@
   },
   "hero": {
     "title": "The future is not human-only.",
-    "subtitle": "Discover unlimited possibilities of artificial intelligence and shape the future of technology today",
+    "subtitle": "Discover the full potential of artificial intelligence and shape the future of technology. Explore our tools, knowledge base, and AI-powered insights.",
     "cta": "Start Exploration",
     "learnMore": "Learn More"
   },
