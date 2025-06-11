@@ -39,6 +39,17 @@ export function AIShowcaseSection() {
   const { t } = useTranslation();
   const [activeDemo, setActiveDemo] = useState<string | null>(null);
 
+  // === ZASTĄP TE LINKI SWOIMI LINKAMI Z CLOUDINARY ===
+  const imageUrl =
+    "https://res.cloudinary.com/dxf4a29fl/image/upload/v1749639992/ai-generated-image_ftecmw.avif";
+  const videoUrlMp4 =
+    "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749639530/ai-generated-video_f4hhq3.mp4";
+  const videoUrlWebm =
+    "https://res.cloudinary.com/demo/video/upload/docs/ai-generated-video.webm";
+  const musicUrlMp3 =
+    "https://res.cloudinary.com/dxf4a29fl/video/upload/v1749639527/ai-generated-music_qaghxw.mp3";
+  // ===================================================
+
   const handleTryDemo = (type: string) => {
     setActiveDemo(type);
     setTimeout(() => {
@@ -60,7 +71,7 @@ export function AIShowcaseSection() {
         >
           <div className="w-72 h-96 relative">
             <img
-              src="/assets/ai-generated-image.avif"
+              src={imageUrl}
               alt="AI Generated Futuristic Portrait"
               className="w-72 h-96 rounded-lg shadow-lg object-cover"
             />
@@ -104,13 +115,17 @@ export function AIShowcaseSection() {
       titleKey: "showcase.video.title",
       descKey: "showcase.video.desc",
       content: (
-        <div className="w-72 h-96 rounded-lg shadow-lg relative overflow-hidden">
+        <div className="w-72 h-96 rounded-lg shadow-lg relative overflow-hidden bg-black">
           <video
-            className="w-72 h-96 rounded-lg shadow-lg object-cover"
-            controls
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
             preload="metadata"
           >
-            <source src="/assets/ai-generated-video.mp4" type="video/mp4" />
+            <source src={videoUrlWebm} type="video/webm" />
+            <source src={videoUrlMp4} type="video/mp4" />
             Twoja przeglądarka nie obsługuje elementu video.
           </video>
           {activeDemo === "video" && (
@@ -159,7 +174,7 @@ export function AIShowcaseSection() {
               className="w-full h-12 bg-black/20 rounded-lg"
               preload="metadata"
             >
-              <source src="/assets/ai-generated-music.mp3" type="audio/mpeg" />
+              <source src={musicUrlMp3} type="audio/mpeg" />
               Twoja przeglądarka nie obsługuje elementu audio.
             </audio>
           </div>
