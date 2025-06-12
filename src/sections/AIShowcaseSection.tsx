@@ -74,6 +74,7 @@ export function AIShowcaseSection() {
               src={imageUrl}
               alt="AI Generated Futuristic Portrait"
               className="w-72 h-96 rounded-lg shadow-lg object-cover"
+              loading="lazy"
             />
             {activeDemo === "image" && (
               <motion.div

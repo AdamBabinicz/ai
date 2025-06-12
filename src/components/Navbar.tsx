@@ -87,6 +87,7 @@ export function Navbar() {
                   src="/assets/2.avif"
                   alt="logo AI"
                   className="w-72 aspect-[227/218] object-contain"
+                  loading="lazy"
                 />
               </div>
               <span className="text-xl font-bold gradient-text">
